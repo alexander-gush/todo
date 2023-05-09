@@ -1,26 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Route, Routes, Navigate } from 'react-router-dom';
+import { AuthContextProvider } from './context/AuthContext';
+import Header from './components/Header';
+import ProtectedRoute from './components/ProtectedRoute';
+import TodoList from './pages/TodoList';
+import Login from './pages/Login';
+import { AppRoot } from '@vkontakte/vkui';
+import '@vkontakte/vkui/dist/vkui.css';
 import './App.css';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppRoot mode="partial">
+      <AuthContextProvider>
+        <Header />
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route
+            path="/"
+            element={
+              <ProtectedRoute>
+                <TodoList />
+              </ProtectedRoute>
+            }
+          />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </AuthContextProvider>
+    </AppRoot>
   );
-}
+};
 
 export default App;
