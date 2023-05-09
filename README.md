@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# TODO list app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simple todo app built with React, Firebase, [VKUI](https://github.com/VKCOM/VKUI), and created with Create React App using TypeScript. It allows you to add, edit, and delete tasks, as well as mark them as completed. The app also allows you to create user accounts for storing your todos and supports authentication via Google and GitHub.
 
 ## Available Scripts
 
