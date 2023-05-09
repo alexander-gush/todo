@@ -127,7 +127,8 @@ const Login = () => {
         <Header mode="primary">
           {showSignIn ? 'Sign in with your account:' : 'Create new account:'}
         </Header>
-      }>
+      }
+    >
       <Card mode="outline">
         <FormLayout>
           <FormItem top="E-mail" bottom={emailStatus}>
@@ -156,7 +157,8 @@ const Login = () => {
               onClick={showSignIn ? handleSignIn : handleCreateUser}
               disabled={
                 passwordStatus !== PasswordStatus.VALID || emailStatus !== EmailStatus.VALID
-              }>
+              }
+            >
               Sign {showSignIn ? 'in' : 'up'}
             </Button>
           </FormItem>
